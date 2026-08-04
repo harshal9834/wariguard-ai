@@ -11,7 +11,11 @@ export const Route = createFileRoute("/app/alerts")({
   head: () => ({
     meta: [
       { title: "Alert Centre · VARI-SENSE" },
-      { name: "description", content: "Critical, medium and resolved alerts with push, SMS, WhatsApp and voice delivery." },
+      {
+        name: "description",
+        content:
+          "Critical, medium and resolved alerts with push, SMS, WhatsApp and voice delivery.",
+      },
     ],
   }),
   component: Alerts,
@@ -31,7 +35,12 @@ function Timeline({ filter }: { filter?: string }) {
       <div className="space-y-4">
         {list.map((a) => (
           <div key={a.id} className="relative">
-            <span className={cn("absolute top-1.5 -left-[18px] size-2.5 rounded-full", levelTone[a.level])} />
+            <span
+              className={cn(
+                "absolute top-1.5 -left-[18px] size-2.5 rounded-full",
+                levelTone[a.level],
+              )}
+            />
             <div className="surface-card p-3.5">
               <div className="flex flex-wrap items-center gap-2">
                 <Badge className={cn("border-0 text-[10px]", levelTone[a.level])}>{a.level}</Badge>
@@ -54,7 +63,11 @@ function Alerts() {
       <PageHeader
         title="Alert & Notification Centre"
         subtitle="Multi-channel dissemination to 2.4 million registered devices"
-        actions={<Button size="sm" className="gradient-saffron border-0 text-white">Broadcast alert</Button>}
+        actions={
+          <Button size="sm" className="gradient-saffron border-0 text-white">
+            Broadcast alert
+          </Button>
+        }
       />
 
       <div className="grid gap-4 xl:grid-cols-3">
@@ -66,10 +79,18 @@ function Alerts() {
               <TabsTrigger value="Medium">Medium</TabsTrigger>
               <TabsTrigger value="Resolved">Resolved</TabsTrigger>
             </TabsList>
-            <TabsContent value="all"><Timeline /></TabsContent>
-            <TabsContent value="Critical"><Timeline filter="Critical" /></TabsContent>
-            <TabsContent value="Medium"><Timeline filter="Medium" /></TabsContent>
-            <TabsContent value="Resolved"><Timeline filter="Resolved" /></TabsContent>
+            <TabsContent value="all">
+              <Timeline />
+            </TabsContent>
+            <TabsContent value="Critical">
+              <Timeline filter="Critical" />
+            </TabsContent>
+            <TabsContent value="Medium">
+              <Timeline filter="Medium" />
+            </TabsContent>
+            <TabsContent value="Resolved">
+              <Timeline filter="Resolved" />
+            </TabsContent>
           </Tabs>
         </div>
 

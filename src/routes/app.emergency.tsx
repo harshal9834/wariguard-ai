@@ -1,6 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Ambulance, Dog, Flame, MapPin, Search, Siren, TrafficCone, Users, Waves } from "lucide-react";
+import {
+  Ambulance,
+  Dog,
+  Flame,
+  MapPin,
+  Search,
+  Siren,
+  TrafficCone,
+  Users,
+  Waves,
+} from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { PageHeader } from "@/components/vari/app-shell";
 import { MapCanvas } from "@/components/vari/map-canvas";
@@ -13,7 +23,11 @@ export const Route = createFileRoute("/app/emergency")({
   head: () => ({
     meta: [
       { title: "Emergency Management · VARI-SENSE" },
-      { name: "description", content: "Medical, fire, stampede, lost person, road block, flood and animal incident response." },
+      {
+        name: "description",
+        content:
+          "Medical, fire, stampede, lost person, road block, flood and animal incident response.",
+      },
     ],
   }),
   component: EmergencyPage,
@@ -29,7 +43,16 @@ const typeIcon: Record<string, LucideIcon> = {
   "Animal Incident": Dog,
 };
 
-const categories = ["All", "Medical", "Fire", "Stampede", "Lost Person", "Road Block", "Flood", "Animal Incident"];
+const categories = [
+  "All",
+  "Medical",
+  "Fire",
+  "Stampede",
+  "Lost Person",
+  "Road Block",
+  "Flood",
+  "Animal Incident",
+];
 
 function EmergencyPage() {
   const [cat, setCat] = useState("All");
@@ -72,20 +95,25 @@ function EmergencyPage() {
                   <span
                     className={cn(
                       "grid size-10 place-items-center rounded-xl",
-                      e.status === "Resolved" ? "bg-success/15 text-success" : "bg-danger/15 text-danger",
+                      e.status === "Resolved"
+                        ? "bg-success/15 text-success"
+                        : "bg-danger/15 text-danger",
                     )}
                   >
                     <Icon className="size-5" />
                   </span>
                   <div className="min-w-48 flex-1">
                     <p className="font-semibold">
-                      {e.type} <span className="text-muted-foreground text-xs font-normal">· {e.id}</span>
+                      {e.type}{" "}
+                      <span className="text-muted-foreground text-xs font-normal">· {e.id}</span>
                     </p>
                     <p className="text-muted-foreground flex items-center gap-1 text-xs">
                       <MapPin className="size-3" /> {e.location} · raised {e.raised}
                     </p>
                   </div>
-                  <Badge variant={e.priority === "Critical" ? "destructive" : "secondary"}>{e.priority}</Badge>
+                  <Badge variant={e.priority === "Critical" ? "destructive" : "secondary"}>
+                    {e.priority}
+                  </Badge>
                   <Badge variant="outline">{e.status}</Badge>
                 </div>
 
@@ -103,7 +131,9 @@ function EmergencyPage() {
                     <p className="text-success mt-0.5 font-semibold">Streaming</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Button size="sm" variant="outline" className="flex-1">Track</Button>
+                    <Button size="sm" variant="outline" className="flex-1">
+                      Track
+                    </Button>
                     <Button size="sm" className="flex-1" disabled={e.status === "Resolved"}>
                       {e.status === "Resolved" ? "Closed" : "Resolve"}
                     </Button>

@@ -42,11 +42,11 @@ Use a clean, minimal, and professional interface with:
 
 - Live maps
 
---------------------------------------------------------
+---
 
 USER ROLES
 
---------------------------------------------------------
+---
 
 Create separate dashboards for:
 
@@ -64,11 +64,11 @@ Create separate dashboards for:
 
 Each role should have its own features and interface.
 
---------------------------------------------------------
+---
 
 AUTHENTICATION
 
---------------------------------------------------------
+---
 
 Create an authentication system with:
 
@@ -86,11 +86,11 @@ Create an authentication system with:
 
 Background should display a faded Wari pilgrimage image.
 
---------------------------------------------------------
+---
 
 LANDING PAGE
 
---------------------------------------------------------
+---
 
 Hero Section
 
@@ -124,11 +124,11 @@ Statistics Section:
 
 • Live Monitoring Enabled
 
---------------------------------------------------------
+---
 
 MAIN DASHBOARD
 
---------------------------------------------------------
+---
 
 Top Navigation
 
@@ -170,11 +170,11 @@ Left Sidebar
 
 • Settings
 
---------------------------------------------------------
+---
 
 DASHBOARD CARDS
 
---------------------------------------------------------
+---
 
 Display beautiful statistic cards:
 
@@ -200,11 +200,11 @@ Display beautiful statistic cards:
 
 Cards should include icons and small trend graphs.
 
---------------------------------------------------------
+---
 
 LIVE MAP
 
---------------------------------------------------------
+---
 
 Create a Google Maps style interface.
 
@@ -236,11 +236,11 @@ Display:
 
 Include animated markers and live updates.
 
---------------------------------------------------------
+---
 
 AI PREDICTION PANEL
 
---------------------------------------------------------
+---
 
 Create a floating AI recommendation panel.
 
@@ -276,11 +276,11 @@ AI Recommendations:
 
 • Redirect Crowd
 
---------------------------------------------------------
+---
 
 EMERGENCY MANAGEMENT
 
---------------------------------------------------------
+---
 
 Emergency Categories:
 
@@ -312,11 +312,11 @@ Each emergency card should display:
 
 • Resolve Button
 
---------------------------------------------------------
+---
 
 VOLUNTEER DASHBOARD
 
---------------------------------------------------------
+---
 
 Features:
 
@@ -340,11 +340,11 @@ Features:
 
 • Volunteer Leaderboard
 
---------------------------------------------------------
+---
 
 MEDICAL DASHBOARD
 
---------------------------------------------------------
+---
 
 Display:
 
@@ -364,11 +364,11 @@ Display:
 
 • Live Ambulance Location
 
---------------------------------------------------------
+---
 
 POLICE DASHBOARD
 
---------------------------------------------------------
+---
 
 Display:
 
@@ -388,11 +388,11 @@ Display:
 
 • Emergency Calls
 
---------------------------------------------------------
+---
 
 RESOURCE MANAGEMENT
 
---------------------------------------------------------
+---
 
 Manage:
 
@@ -420,11 +420,11 @@ Display:
 
 • Transfer Resources
 
---------------------------------------------------------
+---
 
 AI ANALYTICS
 
---------------------------------------------------------
+---
 
 Include interactive charts:
 
@@ -448,11 +448,11 @@ Include interactive charts:
 
 • Area Charts
 
---------------------------------------------------------
+---
 
 ALERT CENTER
 
---------------------------------------------------------
+---
 
 Timeline of alerts:
 
@@ -472,11 +472,11 @@ Notifications:
 
 • Voice Alerts
 
---------------------------------------------------------
+---
 
 REPORTS
 
---------------------------------------------------------
+---
 
 Generate reports:
 
@@ -498,11 +498,11 @@ Download Options:
 
 • Excel
 
---------------------------------------------------------
+---
 
 AI ASSISTANT
 
---------------------------------------------------------
+---
 
 Create an AI chatbot named:
 
@@ -534,11 +534,11 @@ Languages:
 
 • English
 
---------------------------------------------------------
+---
 
 DIGITAL TWIN
 
---------------------------------------------------------
+---
 
 Design a futuristic Digital Twin interface.
 
@@ -558,11 +558,11 @@ Display:
 
 • Timeline Forecast
 
---------------------------------------------------------
+---
 
 NOTIFICATION CENTER
 
---------------------------------------------------------
+---
 
 Real-Time Notifications:
 
@@ -582,11 +582,11 @@ Real-Time Notifications:
 
 • Lost Person Found
 
---------------------------------------------------------
+---
 
 SETTINGS
 
---------------------------------------------------------
+---
 
 • Language
 
@@ -600,11 +600,11 @@ SETTINGS
 
 • Location Permission
 
---------------------------------------------------------
+---
 
 MOBILE APP
 
---------------------------------------------------------
+---
 
 Create Android screens:
 
@@ -642,11 +642,11 @@ Bottom Navigation:
 
 • Profile
 
---------------------------------------------------------
+---
 
 AI INNOVATIONS
 
---------------------------------------------------------
+---
 
 1. VariMitra AI Voice Agent
 
@@ -696,11 +696,11 @@ AI INNOVATIONS
 
 • Leaderboard
 
---------------------------------------------------------
+---
 
 ADDITIONAL FEATURES
 
---------------------------------------------------------
+---
 
 • Live Drone Feed
 
@@ -728,11 +728,11 @@ ADDITIONAL FEATURES
 
 • Accessibility Mode
 
---------------------------------------------------------
+---
 
 UI DESIGN STYLE
 
---------------------------------------------------------
+---
 
 • Modern
 
@@ -763,16 +763,6 @@ UI DESIGN STYLE
 • High-Quality Illustrations
 
 Build a production-quality, fully responsive prototype with approximately 40–50 interconnected screens. The design should feel like a real AI-powered Smart City Command Center for Wari management, suitable for Smart India Hackathon (SIH) demonstrations and investor presentations.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/7f25b70b-2902-49eb-9ae1-c2fd17cad55b).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 

@@ -13,7 +13,10 @@ export const Route = createFileRoute("/app/map")({
   head: () => ({
     meta: [
       { title: "Live Map · VARI-SENSE" },
-      { name: "description", content: "Crowd heatmap, GPS tracks, camps, closures and AI suggested safe routes." },
+      {
+        name: "description",
+        content: "Crowd heatmap, GPS tracks, camps, closures and AI suggested safe routes.",
+      },
     ],
   }),
   component: LiveMap,
@@ -110,7 +113,9 @@ function LiveMap() {
                 <div key={r.n} className="bg-muted/50 rounded-lg p-2.5">
                   <div className="flex items-center justify-between">
                     <span className="text-[13px] font-semibold">{r.n}</span>
-                    <Badge variant="outline" className="text-[10px]">{r.t}</Badge>
+                    <Badge variant="outline" className="text-[10px]">
+                      {r.t}
+                    </Badge>
                   </div>
                   <p className="text-muted-foreground mt-0.5 text-[11px]">{r.d}</p>
                 </div>

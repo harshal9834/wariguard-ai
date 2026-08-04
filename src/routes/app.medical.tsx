@@ -1,20 +1,39 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Ambulance, Droplet, HeartPulse, Hospital, Stethoscope } from "lucide-react";
-import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  CartesianGrid,
+  Line,
+  LineChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { PageHeader } from "@/components/vari/app-shell";
 import { StatCard } from "@/components/vari/stat-card";
 import { MapCanvas } from "@/components/vari/map-canvas";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { bloodBank, inventory, patients, responseTime } from "@/lib/wari-data";
 
 export const Route = createFileRoute("/app/medical")({
   head: () => ({
     meta: [
       { title: "Medical Command · VARI-SENSE" },
-      { name: "description", content: "Patients, ambulances, hospital availability, medicine inventory and blood requirements." },
+      {
+        name: "description",
+        content:
+          "Patients, ambulances, hospital availability, medicine inventory and blood requirements.",
+      },
     ],
   }),
   component: Medical,
@@ -40,10 +59,39 @@ function Medical() {
       />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <StatCard label="Active Patients" value="418" delta="+23" tone="danger" icon={HeartPulse} seed={3} />
-        <StatCard label="Nearby Ambulances" value="21" delta="-4" tone="saffron" icon={Ambulance} seed={5} />
-        <StatCard label="Hospital Beds Free" value="1,244" delta="-86" tone="navy" icon={Hospital} seed={7} />
-        <StatCard label="Avg. Response Time" value="6.2 min" delta="-1.1" up tone="success" icon={Stethoscope} seed={2} />
+        <StatCard
+          label="Active Patients"
+          value="418"
+          delta="+23"
+          tone="danger"
+          icon={HeartPulse}
+          seed={3}
+        />
+        <StatCard
+          label="Nearby Ambulances"
+          value="21"
+          delta="-4"
+          tone="saffron"
+          icon={Ambulance}
+          seed={5}
+        />
+        <StatCard
+          label="Hospital Beds Free"
+          value="1,244"
+          delta="-86"
+          tone="navy"
+          icon={Hospital}
+          seed={7}
+        />
+        <StatCard
+          label="Avg. Response Time"
+          value="6.2 min"
+          delta="-1.1"
+          up
+          tone="success"
+          icon={Stethoscope}
+          seed={2}
+        />
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
@@ -69,11 +117,15 @@ function Medical() {
                   </TableCell>
                   <TableCell className="text-xs">{p.issue}</TableCell>
                   <TableCell>
-                    <Badge className={`border-0 text-[10px] ${triageTone[p.triage]}`}>{p.triage}</Badge>
+                    <Badge className={`border-0 text-[10px] ${triageTone[p.triage]}`}>
+                      {p.triage}
+                    </Badge>
                   </TableCell>
                   <TableCell className="text-xs">{p.camp}</TableCell>
                   <TableCell className="text-right">
-                    <Button size="sm" variant="outline">Track</Button>
+                    <Button size="sm" variant="outline">
+                      Track
+                    </Button>
                   </TableCell>
                 </TableRow>
               ))}
@@ -87,9 +139,28 @@ function Medical() {
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
                 <XAxis dataKey="day" tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
                 <YAxis tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
-                <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12, border: "1px solid var(--border)", background: "var(--card)" }} />
-                <Line type="monotone" dataKey="medical" name="Medical" stroke="var(--success)" strokeWidth={2} />
-                <Line type="monotone" dataKey="police" name="Police" stroke="var(--navy)" strokeWidth={2} />
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: 12,
+                    fontSize: 12,
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                  }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="medical"
+                  name="Medical"
+                  stroke="var(--success)"
+                  strokeWidth={2}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="police"
+                  name="Police"
+                  stroke="var(--navy)"
+                  strokeWidth={2}
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -110,7 +181,11 @@ function Medical() {
                   <div key={i.item}>
                     <div className="flex justify-between text-xs">
                       <span className="font-medium">{i.item}</span>
-                      <span className={i.stock < i.min ? "text-danger font-semibold" : "text-muted-foreground"}>
+                      <span
+                        className={
+                          i.stock < i.min ? "text-danger font-semibold" : "text-muted-foreground"
+                        }
+                      >
                         {i.stock.toLocaleString()} {i.unit}
                       </span>
                     </div>

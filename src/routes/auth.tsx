@@ -24,9 +24,16 @@ export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
       { title: "Sign in · VARI-SENSE Command Centre" },
-      { name: "description", content: "Login, register or use OTP access to the VARI-SENSE Wari management platform." },
+      {
+        name: "description",
+        content: "Login, register or use OTP access to the VARI-SENSE Wari management platform.",
+      },
       { property: "og:title", content: "Sign in · VARI-SENSE Command Centre" },
-      { property: "og:description", content: "Role based access for admins, coordinators, volunteers, police, medical teams and pilgrims." },
+      {
+        property: "og:description",
+        content:
+          "Role based access for admins, coordinators, volunteers, police, medical teams and pilgrims.",
+      },
     ],
   }),
   component: AuthPage,
@@ -56,13 +63,18 @@ function AuthPage() {
       <div className="from-background/70 via-background/85 to-background absolute inset-0 bg-gradient-to-b" />
 
       <div className="relative w-full max-w-md">
-        <Link to="/" className="text-muted-foreground hover:text-foreground mb-4 inline-flex items-center gap-1.5 text-xs">
+        <Link
+          to="/"
+          className="text-muted-foreground hover:text-foreground mb-4 inline-flex items-center gap-1.5 text-xs"
+        >
           <ArrowLeft className="size-3.5" /> Back to home
         </Link>
 
         <div className="glass rounded-3xl p-6">
           <div className="flex items-center gap-2.5">
-            <span className="gradient-saffron grid size-10 place-items-center rounded-xl font-black text-white">V</span>
+            <span className="gradient-saffron grid size-10 place-items-center rounded-xl font-black text-white">
+              V
+            </span>
             <div>
               <p className="font-extrabold tracking-tight">
                 VARI<span className="text-saffron">-SENSE</span>

@@ -29,14 +29,16 @@ export function StatCard({
   icon: LucideIcon;
   seed?: number;
 }) {
-  const t = toneMap[tone] ?? toneMap['navy']!;
+  const t = toneMap[tone] ?? toneMap["navy"]!;
   const data = spark(seed);
 
   return (
     <div className="surface-card group relative overflow-hidden p-4 transition-shadow hover:shadow-[var(--shadow-lift)]">
       <div className="flex items-start justify-between gap-2">
         <div>
-          <p className="text-muted-foreground text-[11px] font-medium tracking-wide uppercase">{label}</p>
+          <p className="text-muted-foreground text-[11px] font-medium tracking-wide uppercase">
+            {label}
+          </p>
           <p className="mt-1.5 text-2xl font-bold tabular-nums">{value}</p>
         </div>
         <span className={cn("grid size-9 shrink-0 place-items-center rounded-xl", t.chip)}>

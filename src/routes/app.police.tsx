@@ -6,14 +6,24 @@ import { MapCanvas } from "@/components/vari/map-canvas";
 import { AIPanel } from "@/components/vari/ai-panel";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { policeUnits } from "@/lib/wari-data";
 
 export const Route = createFileRoute("/app/police")({
   head: () => ({
     meta: [
       { title: "Police Command · VARI-SENSE" },
-      { name: "description", content: "Crowd alerts, barricade status, road closures, drone feeds and incident reports." },
+      {
+        name: "description",
+        content: "Crowd alerts, barricade status, road closures, drone feeds and incident reports.",
+      },
     ],
   }),
   component: Police,
@@ -25,14 +35,48 @@ function Police() {
       <PageHeader
         title="Police Command"
         subtitle="504 units deployed · 12 drones airborne · 6 active closures"
-        actions={<Button size="sm" variant="destructive" className="gap-1.5"><TriangleAlert className="size-4" /> Raise alert</Button>}
+        actions={
+          <Button size="sm" variant="destructive" className="gap-1.5">
+            <TriangleAlert className="size-4" /> Raise alert
+          </Button>
+        }
       />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <StatCard label="Crowd Alerts" value="14" delta="+3" tone="danger" icon={TriangleAlert} seed={2} />
-        <StatCard label="Barricades Active" value="186" delta="+12" up tone="navy" icon={Shield} seed={4} />
-        <StatCard label="Road Closures" value="6" delta="2 new" tone="warning" icon={TrafficCone} seed={6} />
-        <StatCard label="Emergency Calls" value="92" delta="-8" up tone="success" icon={PhoneCall} seed={8} />
+        <StatCard
+          label="Crowd Alerts"
+          value="14"
+          delta="+3"
+          tone="danger"
+          icon={TriangleAlert}
+          seed={2}
+        />
+        <StatCard
+          label="Barricades Active"
+          value="186"
+          delta="+12"
+          up
+          tone="navy"
+          icon={Shield}
+          seed={4}
+        />
+        <StatCard
+          label="Road Closures"
+          value="6"
+          delta="2 new"
+          tone="warning"
+          icon={TrafficCone}
+          seed={6}
+        />
+        <StatCard
+          label="Emergency Calls"
+          value="92"
+          delta="-8"
+          up
+          tone="success"
+          icon={PhoneCall}
+          seed={8}
+        />
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
@@ -46,12 +90,21 @@ function Police() {
             </Badge>
           </div>
           <div className="mt-3 grid gap-3 sm:grid-cols-2">
-            {["DRN-01 · Alandi Ghat", "DRN-02 · Wakhri Ringan", "DRN-05 · NH-965", "DRN-08 · Jejuri Camp"].map((d) => (
+            {[
+              "DRN-01 · Alandi Ghat",
+              "DRN-02 · Wakhri Ringan",
+              "DRN-05 · NH-965",
+              "DRN-08 · Jejuri Camp",
+            ].map((d) => (
               <div key={d} className="overflow-hidden rounded-xl border">
                 <div className="relative h-32 bg-gradient-to-br from-[oklch(0.32_0.05_265)] to-[oklch(0.18_0.03_265)]">
                   <div className="animate-sweep absolute inset-y-0 w-1/3 bg-white/10" />
-                  <span className="absolute top-2 left-2 rounded bg-black/50 px-1.5 py-0.5 text-[10px] font-semibold text-white">{d}</span>
-                  <span className="absolute right-2 bottom-2 rounded bg-black/50 px-1.5 py-0.5 text-[10px] text-white">Alt 120 m</span>
+                  <span className="absolute top-2 left-2 rounded bg-black/50 px-1.5 py-0.5 text-[10px] font-semibold text-white">
+                    {d}
+                  </span>
+                  <span className="absolute right-2 bottom-2 rounded bg-black/50 px-1.5 py-0.5 text-[10px] text-white">
+                    Alt 120 m
+                  </span>
                 </div>
               </div>
             ))}
@@ -74,7 +127,12 @@ function Police() {
                   <TableCell className="text-xs">{u.zone}</TableCell>
                   <TableCell className="text-xs">{u.strength}</TableCell>
                   <TableCell>
-                    <Badge variant={u.status === "Standby" ? "secondary" : "default"} className="text-[10px]">{u.status}</Badge>
+                    <Badge
+                      variant={u.status === "Standby" ? "secondary" : "default"}
+                      className="text-[10px]"
+                    >
+                      {u.status}
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))}

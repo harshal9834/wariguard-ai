@@ -8,7 +8,11 @@ export const Route = createFileRoute("/app/reports")({
   head: () => ({
     meta: [
       { title: "Reports · VARI-SENSE" },
-      { name: "description", content: "Daily, crowd, emergency, volunteer, medical and resource reports in PDF or Excel." },
+      {
+        name: "description",
+        content:
+          "Daily, crowd, emergency, volunteer, medical and resource reports in PDF or Excel.",
+      },
     ],
   }),
   component: Reports,
@@ -26,7 +30,11 @@ const reports = [
 function Reports() {
   return (
     <>
-      <PageHeader title="Reports" subtitle="Auto-generated at 06:00, 14:00 and 22:00 IST" actions={<Badge variant="outline">Retention 5 years</Badge>} />
+      <PageHeader
+        title="Reports"
+        subtitle="Auto-generated at 06:00, 14:00 and 22:00 IST"
+        actions={<Badge variant="outline">Retention 5 years</Badge>}
+      />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {reports.map((r) => (
           <div key={r.t} className="surface-card p-4">

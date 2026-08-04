@@ -21,7 +21,10 @@ export const Route = createFileRoute("/app/crowd")({
   head: () => ({
     meta: [
       { title: "Crowd Monitoring · VARI-SENSE" },
-      { name: "description", content: "Zone-wise occupancy, choke point detection and CCTV/drone crowd analytics." },
+      {
+        name: "description",
+        content: "Zone-wise occupancy, choke point detection and CCTV/drone crowd analytics.",
+      },
     ],
   }),
   component: Crowd,
@@ -37,13 +40,46 @@ const feeds = [
 function Crowd() {
   return (
     <>
-      <PageHeader title="Crowd Monitoring" subtitle="Computer-vision density estimation across 96 drones and 212 cameras" />
+      <PageHeader
+        title="Crowd Monitoring"
+        subtitle="Computer-vision density estimation across 96 drones and 212 cameras"
+      />
 
       <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-        <StatCard label="Live Occupancy" value="78%" delta="+6%" tone="saffron" icon={Gauge} seed={1} />
-        <StatCard label="Pilgrims In Frame" value="1,86,420" delta="+4.2%" up tone="navy" icon={Users} seed={4} />
-        <StatCard label="Choke Points" value="5" delta="+2" tone="danger" icon={Activity} seed={7} />
-        <StatCard label="Active Feeds" value="308" delta="+12" up tone="success" icon={Camera} seed={9} />
+        <StatCard
+          label="Live Occupancy"
+          value="78%"
+          delta="+6%"
+          tone="saffron"
+          icon={Gauge}
+          seed={1}
+        />
+        <StatCard
+          label="Pilgrims In Frame"
+          value="1,86,420"
+          delta="+4.2%"
+          up
+          tone="navy"
+          icon={Users}
+          seed={4}
+        />
+        <StatCard
+          label="Choke Points"
+          value="5"
+          delta="+2"
+          tone="danger"
+          icon={Activity}
+          seed={7}
+        />
+        <StatCard
+          label="Active Feeds"
+          value="308"
+          delta="+12"
+          up
+          tone="success"
+          icon={Camera}
+          seed={9}
+        />
       </div>
 
       <div className="mt-4 grid gap-4 xl:grid-cols-3">
@@ -59,12 +95,39 @@ function Crowd() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="hour" interval={2} tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
+                <XAxis
+                  dataKey="hour"
+                  interval={2}
+                  tick={{ fontSize: 10 }}
+                  stroke="var(--muted-foreground)"
+                />
                 <YAxis tick={{ fontSize: 10 }} width={50} stroke="var(--muted-foreground)" />
-                <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12, border: "1px solid var(--border)", background: "var(--card)" }} />
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: 12,
+                    fontSize: 12,
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                  }}
+                />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
-                <Area type="monotone" dataKey="actual" name="Observed" stroke="var(--saffron)" strokeWidth={2} fill="url(#cd)" />
-                <Area type="monotone" dataKey="predicted" name="Predicted" stroke="var(--navy)" strokeWidth={2} fillOpacity={0} strokeDasharray="5 4" />
+                <Area
+                  type="monotone"
+                  dataKey="actual"
+                  name="Observed"
+                  stroke="var(--saffron)"
+                  strokeWidth={2}
+                  fill="url(#cd)"
+                />
+                <Area
+                  type="monotone"
+                  dataKey="predicted"
+                  name="Predicted"
+                  stroke="var(--navy)"
+                  strokeWidth={2}
+                  fillOpacity={0}
+                  strokeDasharray="5 4"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -77,7 +140,13 @@ function Crowd() {
               <div key={z.zone}>
                 <div className="flex justify-between text-xs">
                   <span className="font-medium">{z.zone}</span>
-                  <span className={z.density > 85 ? "text-danger font-semibold" : "text-muted-foreground"}>{z.density}%</span>
+                  <span
+                    className={
+                      z.density > 85 ? "text-danger font-semibold" : "text-muted-foreground"
+                    }
+                  >
+                    {z.density}%
+                  </span>
                 </div>
                 <Progress value={z.density} className="mt-1 h-1.5" />
               </div>
@@ -104,7 +173,10 @@ function Crowd() {
                     <p className="text-[12px] font-medium">{f.zone}</p>
                     <p className="text-muted-foreground text-[10px]">Occupancy {f.occupancy}%</p>
                   </div>
-                  <Badge variant={f.state === "Critical" ? "destructive" : "secondary"} className="text-[10px]">
+                  <Badge
+                    variant={f.state === "Critical" ? "destructive" : "secondary"}
+                    className="text-[10px]"
+                  >
                     {f.state}
                   </Badge>
                 </div>

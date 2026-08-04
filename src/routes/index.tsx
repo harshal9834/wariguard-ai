@@ -32,7 +32,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "VARI-SENSE — AI Powered Smart Wari Management Platform" },
       {
         property: "og:description",
-        content: "Smart City command centre for the Wari pilgrimage: crowd AI, live maps, emergency response.",
+        content:
+          "Smart City command centre for the Wari pilgrimage: crowd AI, live maps, emergency response.",
       },
     ],
   }),
@@ -48,12 +49,36 @@ const stats = [
 ];
 
 const features = [
-  { icon: Map, title: "Live Command Map", desc: "Crowd heatmaps, GPS tracks, camps, closures and AI safe routes on one canvas." },
-  { icon: Brain, title: "Congestion Prediction", desc: "15-minute, 30-minute and hourly density forecasts with confidence scoring." },
-  { icon: Siren, title: "Emergency Response", desc: "Medical, fire, stampede and lost-person workflows with live ETA tracking." },
-  { icon: Boxes, title: "Resource Forecasting", desc: "Water, food, medical kits and vehicles balanced across every zone." },
-  { icon: BotMessageSquare, title: "VariMitra AI", desc: "Multilingual voice + chat assistant in Marathi, Hindi and English." },
-  { icon: Orbit, title: "Wari Digital Twin", desc: "Simulate crowd flow, resource movement and emergency scenarios ahead of time." },
+  {
+    icon: Map,
+    title: "Live Command Map",
+    desc: "Crowd heatmaps, GPS tracks, camps, closures and AI safe routes on one canvas.",
+  },
+  {
+    icon: Brain,
+    title: "Congestion Prediction",
+    desc: "15-minute, 30-minute and hourly density forecasts with confidence scoring.",
+  },
+  {
+    icon: Siren,
+    title: "Emergency Response",
+    desc: "Medical, fire, stampede and lost-person workflows with live ETA tracking.",
+  },
+  {
+    icon: Boxes,
+    title: "Resource Forecasting",
+    desc: "Water, food, medical kits and vehicles balanced across every zone.",
+  },
+  {
+    icon: BotMessageSquare,
+    title: "VariMitra AI",
+    desc: "Multilingual voice + chat assistant in Marathi, Hindi and English.",
+  },
+  {
+    icon: Orbit,
+    title: "Wari Digital Twin",
+    desc: "Simulate crowd flow, resource movement and emergency scenarios ahead of time.",
+  },
 ];
 
 const modules = [
@@ -69,14 +94,22 @@ function Landing() {
   return (
     <div className="min-h-screen bg-background">
       <header className="glass sticky top-0 z-50 flex h-16 items-center gap-3 border-b px-4 sm:px-8">
-        <span className="gradient-saffron grid size-9 place-items-center rounded-xl font-black text-white">V</span>
+        <span className="gradient-saffron grid size-9 place-items-center rounded-xl font-black text-white">
+          V
+        </span>
         <span className="font-extrabold tracking-tight">
           VARI<span className="text-saffron">-SENSE</span>
         </span>
         <nav className="text-muted-foreground ml-8 hidden gap-6 text-sm font-medium lg:flex">
-          <a href="#platform" className="hover:text-foreground">Platform</a>
-          <a href="#roles" className="hover:text-foreground">Roles</a>
-          <a href="#innovation" className="hover:text-foreground">AI Innovations</a>
+          <a href="#platform" className="hover:text-foreground">
+            Platform
+          </a>
+          <a href="#roles" className="hover:text-foreground">
+            Roles
+          </a>
+          <a href="#innovation" className="hover:text-foreground">
+            AI Innovations
+          </a>
         </nav>
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
@@ -111,8 +144,9 @@ function Landing() {
             Predict • Coordinate • Protect
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-[15px] leading-relaxed text-white/80">
-            One command centre for coordinators, volunteers, police, medical teams and pilgrims — powered by
-            real-time crowd intelligence, predictive analytics and multilingual AI assistance.
+            One command centre for coordinators, volunteers, police, medical teams and pilgrims —
+            powered by real-time crowd intelligence, predictive analytics and multilingual AI
+            assistance.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="gradient-saffron border-0 text-white shadow-lg">
@@ -120,7 +154,12 @@ function Landing() {
                 Get Started <ArrowRight className="size-4" />
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20 hover:text-white">
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20 hover:text-white"
+            >
               <Link to="/app">Explore Dashboard</Link>
             </Button>
           </div>
@@ -130,7 +169,9 @@ function Landing() {
           {stats.map((s) => (
             <div key={s.label} className="glass rounded-2xl p-4 text-center">
               <p className="text-saffron text-xl font-black sm:text-2xl">{s.value}</p>
-              <p className="text-muted-foreground mt-1 text-[11px] font-medium tracking-wide uppercase">{s.label}</p>
+              <p className="text-muted-foreground mt-1 text-[11px] font-medium tracking-wide uppercase">
+                {s.label}
+              </p>
             </div>
           ))}
         </div>
@@ -143,7 +184,10 @@ function Landing() {
         </p>
         <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((f) => (
-            <div key={f.title} className="surface-card p-5 transition-shadow hover:shadow-[var(--shadow-lift)]">
+            <div
+              key={f.title}
+              className="surface-card p-5 transition-shadow hover:shadow-[var(--shadow-lift)]"
+            >
               <span className="bg-saffron/15 text-saffron grid size-10 place-items-center rounded-xl">
                 <f.icon className="size-5" />
               </span>
@@ -177,12 +221,27 @@ function Landing() {
       <section id="innovation" className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-4 lg:grid-cols-4">
           {[
-            { t: "VariMitra Voice Agent", d: "Hands-free multilingual navigation and emergency voice commands, with offline mode." },
-            { t: "WhatsApp Seva Agent", d: "SOS, nearby volunteer, live route, food and medical help right inside WhatsApp." },
-            { t: "Wari Digital Twin", d: "Live simulation of crowd, resources and emergencies for what-if planning." },
-            { t: "SevaOS", d: "Volunteer OS: QR attendance, AI scheduling, task allocation and leaderboards." },
+            {
+              t: "VariMitra Voice Agent",
+              d: "Hands-free multilingual navigation and emergency voice commands, with offline mode.",
+            },
+            {
+              t: "WhatsApp Seva Agent",
+              d: "SOS, nearby volunteer, live route, food and medical help right inside WhatsApp.",
+            },
+            {
+              t: "Wari Digital Twin",
+              d: "Live simulation of crowd, resources and emergencies for what-if planning.",
+            },
+            {
+              t: "SevaOS",
+              d: "Volunteer OS: QR attendance, AI scheduling, task allocation and leaderboards.",
+            },
           ].map((i, idx) => (
-            <div key={i.t} className="gradient-navy relative overflow-hidden rounded-2xl p-5 text-white">
+            <div
+              key={i.t}
+              className="gradient-navy relative overflow-hidden rounded-2xl p-5 text-white"
+            >
               <span className="text-saffron text-xs font-bold">0{idx + 1}</span>
               <h3 className="mt-2 font-semibold">{i.t}</h3>
               <p className="mt-2 text-[13px] leading-relaxed text-white/75">{i.d}</p>

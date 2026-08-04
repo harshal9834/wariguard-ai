@@ -11,7 +11,10 @@ export const Route = createFileRoute("/app/digital-twin")({
   head: () => ({
     meta: [
       { title: "Wari Digital Twin · VARI-SENSE" },
-      { name: "description", content: "Live crowd simulation, resource movement and emergency scenario forecasting." },
+      {
+        name: "description",
+        content: "Live crowd simulation, resource movement and emergency scenario forecasting.",
+      },
     ],
   }),
   component: DigitalTwin,
@@ -25,8 +28,12 @@ function DigitalTwin() {
         subtitle="Simulate crowd flow, resources and emergencies before they happen"
         actions={
           <>
-            <Badge variant="outline" className="gap-1.5"><Orbit className="size-3.5" /> Sim v3.2</Badge>
-            <Button size="sm" className="gap-1.5"><Play className="size-4" /> Run simulation</Button>
+            <Badge variant="outline" className="gap-1.5">
+              <Orbit className="size-3.5" /> Sim v3.2
+            </Badge>
+            <Button size="sm" className="gap-1.5">
+              <Play className="size-4" /> Run simulation
+            </Button>
           </>
         }
       />
@@ -41,7 +48,10 @@ function DigitalTwin() {
               </div>
               <Slider defaultValue={[45]} max={180} step={5} className="mt-3" />
               <div className="text-muted-foreground mt-1.5 flex justify-between text-[10px]">
-                <span>Now</span><span>+1 h</span><span>+2 h</span><span>+3 h</span>
+                <span>Now</span>
+                <span>+1 h</span>
+                <span>+2 h</span>
+                <span>+3 h</span>
               </div>
             </div>
           </div>
@@ -71,7 +81,10 @@ function DigitalTwin() {
                 { n: "Ringan surge", i: "Density 96% for 22 min" },
                 { n: "Ambulance shortage", i: "Response 6 → 14 min" },
               ].map((s) => (
-                <button key={s.n} className="bg-muted/40 hover:bg-muted w-full rounded-lg p-2.5 text-left">
+                <button
+                  key={s.n}
+                  className="bg-muted/40 hover:bg-muted w-full rounded-lg p-2.5 text-left"
+                >
                   <p className="text-[13px] font-medium">{s.n}</p>
                   <p className="text-muted-foreground text-[11px]">{s.i}</p>
                 </button>

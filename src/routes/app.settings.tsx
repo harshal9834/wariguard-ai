@@ -8,7 +8,11 @@ export const Route = createFileRoute("/app/settings")({
   head: () => ({
     meta: [
       { title: "Settings · VARI-SENSE" },
-      { name: "description", content: "Language, theme, notifications, voice assistant, accessibility and location permissions." },
+      {
+        name: "description",
+        content:
+          "Language, theme, notifications, voice assistant, accessibility and location permissions.",
+      },
     ],
   }),
   component: Settings,
@@ -16,16 +20,36 @@ export const Route = createFileRoute("/app/settings")({
 
 const groups = [
   { t: "Language", items: ["Marathi (मराठी)", "Hindi (हिंदी)", "English"], type: "lang" },
-  { t: "Notifications", items: ["Push notifications", "SMS alerts", "WhatsApp alerts", "Voice alerts"], type: "switch" },
-  { t: "Voice Assistant", items: ["Always-on wake word", "Offline voice mode", "Hands-free navigation"], type: "switch" },
-  { t: "Accessibility", items: ["High contrast mode", "Large text", "Screen reader hints", "Reduced motion"], type: "switch" },
-  { t: "Permissions", items: ["Location access", "Background tracking", "Camera for QR", "Microphone"], type: "switch" },
+  {
+    t: "Notifications",
+    items: ["Push notifications", "SMS alerts", "WhatsApp alerts", "Voice alerts"],
+    type: "switch",
+  },
+  {
+    t: "Voice Assistant",
+    items: ["Always-on wake word", "Offline voice mode", "Hands-free navigation"],
+    type: "switch",
+  },
+  {
+    t: "Accessibility",
+    items: ["High contrast mode", "Large text", "Screen reader hints", "Reduced motion"],
+    type: "switch",
+  },
+  {
+    t: "Permissions",
+    items: ["Location access", "Background tracking", "Camera for QR", "Microphone"],
+    type: "switch",
+  },
 ];
 
 function Settings() {
   return (
     <>
-      <PageHeader title="Settings" subtitle="Personalise the command centre and field experience" actions={<Button size="sm">Save changes</Button>} />
+      <PageHeader
+        title="Settings"
+        subtitle="Personalise the command centre and field experience"
+        actions={<Button size="sm">Save changes</Button>}
+      />
       <div className="grid gap-4 lg:grid-cols-2">
         {groups.map((g) => (
           <div key={g.t} className="surface-card p-4">

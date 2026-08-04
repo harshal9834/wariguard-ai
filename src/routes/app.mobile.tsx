@@ -7,7 +7,11 @@ export const Route = createFileRoute("/app/mobile")({
   head: () => ({
     meta: [
       { title: "Mobile App Screens · VARI-SENSE" },
-      { name: "description", content: "Android pilgrim and volunteer app screens: splash, home, map, emergency, AI and profile." },
+      {
+        name: "description",
+        content:
+          "Android pilgrim and volunteer app screens: splash, home, map, emergency, AI and profile.",
+      },
     ],
   }),
   component: MobileScreens,
@@ -30,7 +34,11 @@ const screens = [
 function MobileScreens() {
   return (
     <>
-      <PageHeader title="Mobile App" subtitle="Android pilgrim & volunteer companion" actions={<Badge variant="outline">11 screens</Badge>} />
+      <PageHeader
+        title="Mobile App"
+        subtitle="Android pilgrim & volunteer companion"
+        actions={<Badge variant="outline">11 screens</Badge>}
+      />
       <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {screens.map((s) => (
           <div key={s.t} className="surface-card overflow-hidden p-3">
@@ -44,7 +52,9 @@ function MobileScreens() {
                 <p className="text-[13px] font-semibold">{s.t}</p>
                 <div className="mt-2 flex-1 space-y-1.5">
                   {s.b.map((b) => (
-                    <div key={b} className="bg-muted/60 rounded-lg px-2 py-1.5 text-[10px]">{b}</div>
+                    <div key={b} className="bg-muted/60 rounded-lg px-2 py-1.5 text-[10px]">
+                      {b}
+                    </div>
                   ))}
                 </div>
                 <div className="text-muted-foreground mt-2 flex justify-between border-t pt-2">

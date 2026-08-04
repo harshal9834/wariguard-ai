@@ -5,7 +5,10 @@ export const Route = createFileRoute("/app")({
   head: () => ({
     meta: [
       { title: "Command Centre · VARI-SENSE" },
-      { name: "description", content: "Live Wari operations: crowd AI, maps, emergencies, resources and analytics." },
+      {
+        name: "description",
+        content: "Live Wari operations: crowd AI, maps, emergencies, resources and analytics.",
+      },
     ],
   }),
   component: () => (

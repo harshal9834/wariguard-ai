@@ -41,7 +41,10 @@ export const Route = createFileRoute("/app/")({
   head: () => ({
     meta: [
       { title: "Operations Dashboard · VARI-SENSE" },
-      { name: "description", content: "Live overview of pilgrims, volunteers, medical, police, resources and AI risk." },
+      {
+        name: "description",
+        content: "Live overview of pilgrims, volunteers, medical, police, resources and AI risk.",
+      },
       { property: "og:title", content: "Operations Dashboard · VARI-SENSE" },
       { property: "og:description", content: "Live Wari operations at a glance." },
     ],
@@ -73,8 +76,12 @@ function Dashboard() {
             <Badge className="bg-success/15 text-success border-0 gap-1.5">
               <span className="bg-success size-1.5 animate-pulse rounded-full" /> Live sync
             </Badge>
-            <Button variant="outline" size="sm">Last 24 hours</Button>
-            <Button size="sm" className="gradient-saffron border-0 text-white">Export snapshot</Button>
+            <Button variant="outline" size="sm">
+              Last 24 hours
+            </Button>
+            <Button size="sm" className="gradient-saffron border-0 text-white">
+              Export snapshot
+            </Button>
           </>
         }
       />
@@ -99,7 +106,9 @@ function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h2 className="font-semibold">Crowd trend vs AI prediction</h2>
-              <p className="text-muted-foreground text-xs">Pilgrims present per hour across all monitored zones</p>
+              <p className="text-muted-foreground text-xs">
+                Pilgrims present per hour across all monitored zones
+              </p>
             </div>
             <Badge variant="outline">Accuracy 94.6%</Badge>
           </div>
@@ -113,12 +122,39 @@ function Dashboard() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="hour" tick={{ fontSize: 10 }} interval={3} stroke="var(--muted-foreground)" />
+                <XAxis
+                  dataKey="hour"
+                  tick={{ fontSize: 10 }}
+                  interval={3}
+                  stroke="var(--muted-foreground)"
+                />
                 <YAxis tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" width={48} />
-                <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12, border: "1px solid var(--border)", background: "var(--card)" }} />
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: 12,
+                    fontSize: 12,
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                  }}
+                />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
-                <Area type="monotone" dataKey="actual" name="Actual" stroke="var(--navy)" strokeWidth={2} fill="url(#ac)" />
-                <Line type="monotone" dataKey="predicted" name="AI predicted" stroke="var(--saffron)" strokeWidth={2} dot={false} strokeDasharray="5 4" />
+                <Area
+                  type="monotone"
+                  dataKey="actual"
+                  name="Actual"
+                  stroke="var(--navy)"
+                  strokeWidth={2}
+                  fill="url(#ac)"
+                />
+                <Line
+                  type="monotone"
+                  dataKey="predicted"
+                  name="AI predicted"
+                  stroke="var(--saffron)"
+                  strokeWidth={2}
+                  dot={false}
+                  strokeDasharray="5 4"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -146,7 +182,11 @@ function Dashboard() {
                 <div key={z.zone}>
                   <div className="flex justify-between text-xs">
                     <span className="font-medium">{z.zone}</span>
-                    <span className={z.density > 85 ? "text-danger font-semibold" : "text-muted-foreground"}>
+                    <span
+                      className={
+                        z.density > 85 ? "text-danger font-semibold" : "text-muted-foreground"
+                      }
+                    >
                       {z.density}%
                     </span>
                   </div>
@@ -180,7 +220,10 @@ function Dashboard() {
           <h2 className="font-semibold">Active emergencies</h2>
           <div className="mt-3 space-y-2">
             {emergencies.slice(0, 4).map((e) => (
-              <div key={e.id} className="bg-muted/40 flex flex-wrap items-center gap-3 rounded-xl p-3">
+              <div
+                key={e.id}
+                className="bg-muted/40 flex flex-wrap items-center gap-3 rounded-xl p-3"
+              >
                 <span className="bg-danger/15 text-danger grid size-9 place-items-center rounded-lg">
                   <Siren className="size-4" />
                 </span>
@@ -190,7 +233,9 @@ function Dashboard() {
                   </p>
                   <p className="text-muted-foreground text-[11px]">{e.location}</p>
                 </div>
-                <Badge variant={e.priority === "Critical" ? "destructive" : "secondary"}>{e.priority}</Badge>
+                <Badge variant={e.priority === "Critical" ? "destructive" : "secondary"}>
+                  {e.priority}
+                </Badge>
                 <span className="text-muted-foreground text-[11px]">{e.team}</span>
                 <span className="text-xs font-semibold">ETA {e.eta}</span>
               </div>
@@ -205,8 +250,21 @@ function Dashboard() {
               <BarChart data={densityByZone} layout="vertical" margin={{ left: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" horizontal={false} />
                 <XAxis type="number" tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
-                <YAxis type="category" dataKey="zone" width={90} tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
-                <Tooltip contentStyle={{ borderRadius: 12, fontSize: 12, border: "1px solid var(--border)", background: "var(--card)" }} />
+                <YAxis
+                  type="category"
+                  dataKey="zone"
+                  width={90}
+                  tick={{ fontSize: 10 }}
+                  stroke="var(--muted-foreground)"
+                />
+                <Tooltip
+                  contentStyle={{
+                    borderRadius: 12,
+                    fontSize: 12,
+                    border: "1px solid var(--border)",
+                    background: "var(--card)",
+                  }}
+                />
                 <Bar dataKey="density" fill="var(--saffron)" radius={[0, 6, 6, 0]} />
               </BarChart>
             </ResponsiveContainer>

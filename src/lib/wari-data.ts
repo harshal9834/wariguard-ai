@@ -6,16 +6,96 @@ export const spark = (seed: number, n = 12): Trend =>
   }));
 
 export const statCards = [
-  { key: "pilgrims", label: "Total Pilgrims", value: "1,86,420", delta: "+4.2%", up: true, tone: "saffron", icon: "Users" },
-  { key: "volunteers", label: "Active Volunteers", value: "2,514", delta: "+112", up: true, tone: "navy", icon: "HeartHandshake" },
-  { key: "ambulance", label: "Available Ambulances", value: "148", delta: "-6", up: false, tone: "success", icon: "Ambulance" },
-  { key: "medical", label: "Medical Teams", value: "312", delta: "+9", up: true, tone: "success", icon: "Stethoscope" },
-  { key: "police", label: "Police Teams", value: "504", delta: "+18", up: true, tone: "navy", icon: "Shield" },
-  { key: "food", label: "Food Distribution", value: "84,300", delta: "+7.6%", up: true, tone: "saffron", icon: "Utensils" },
-  { key: "water", label: "Water Stations", value: "212", delta: "3 low", up: false, tone: "navy", icon: "Droplets" },
-  { key: "emergency", label: "Emergency Cases", value: "27", delta: "+5", up: false, tone: "danger", icon: "Siren" },
-  { key: "roads", label: "Road Closures", value: "6", delta: "2 new", up: false, tone: "warning", icon: "TrafficCone" },
-  { key: "risk", label: "AI Risk Score", value: "72 / 100", delta: "High", up: false, tone: "danger", icon: "Brain" },
+  {
+    key: "pilgrims",
+    label: "Total Pilgrims",
+    value: "1,86,420",
+    delta: "+4.2%",
+    up: true,
+    tone: "saffron",
+    icon: "Users",
+  },
+  {
+    key: "volunteers",
+    label: "Active Volunteers",
+    value: "2,514",
+    delta: "+112",
+    up: true,
+    tone: "navy",
+    icon: "HeartHandshake",
+  },
+  {
+    key: "ambulance",
+    label: "Available Ambulances",
+    value: "148",
+    delta: "-6",
+    up: false,
+    tone: "success",
+    icon: "Ambulance",
+  },
+  {
+    key: "medical",
+    label: "Medical Teams",
+    value: "312",
+    delta: "+9",
+    up: true,
+    tone: "success",
+    icon: "Stethoscope",
+  },
+  {
+    key: "police",
+    label: "Police Teams",
+    value: "504",
+    delta: "+18",
+    up: true,
+    tone: "navy",
+    icon: "Shield",
+  },
+  {
+    key: "food",
+    label: "Food Distribution",
+    value: "84,300",
+    delta: "+7.6%",
+    up: true,
+    tone: "saffron",
+    icon: "Utensils",
+  },
+  {
+    key: "water",
+    label: "Water Stations",
+    value: "212",
+    delta: "3 low",
+    up: false,
+    tone: "navy",
+    icon: "Droplets",
+  },
+  {
+    key: "emergency",
+    label: "Emergency Cases",
+    value: "27",
+    delta: "+5",
+    up: false,
+    tone: "danger",
+    icon: "Siren",
+  },
+  {
+    key: "roads",
+    label: "Road Closures",
+    value: "6",
+    delta: "2 new",
+    up: false,
+    tone: "warning",
+    icon: "TrafficCone",
+  },
+  {
+    key: "risk",
+    label: "AI Risk Score",
+    value: "72 / 100",
+    delta: "High",
+    up: false,
+    tone: "danger",
+    icon: "Brain",
+  },
 ] as const;
 
 export const crowdTrend = Array.from({ length: 24 }, (_, i) => ({
@@ -58,7 +138,8 @@ export const responseTime = Array.from({ length: 12 }, (_, i) => ({
 
 export type Emergency = {
   id: string;
-  type: "Medical" | "Fire" | "Stampede" | "Lost Person" | "Road Block" | "Flood" | "Animal Incident";
+  type:
+    "Medical" | "Fire" | "Stampede" | "Lost Person" | "Road Block" | "Flood" | "Animal Incident";
   priority: "Critical" | "High" | "Medium" | "Low";
   status: "Active" | "Dispatched" | "En Route" | "Resolved";
   location: string;
@@ -68,21 +149,117 @@ export type Emergency = {
 };
 
 export const emergencies: Emergency[] = [
-  { id: "EMG-4821", type: "Medical", priority: "Critical", status: "En Route", location: "Wakhri Ringan · Sector 4", team: "Ambulance A-17", eta: "3 min", raised: "2 min ago" },
-  { id: "EMG-4820", type: "Stampede", priority: "Critical", status: "Dispatched", location: "Alandi Ghat Bridge", team: "QRT Bravo", eta: "6 min", raised: "8 min ago" },
-  { id: "EMG-4818", type: "Lost Person", priority: "High", status: "Active", location: "Jejuri Camp Gate 2", team: "Seva Unit 12", eta: "—", raised: "14 min ago" },
-  { id: "EMG-4815", type: "Road Block", priority: "Medium", status: "Dispatched", location: "NH-965 KM 42", team: "Traffic Wing 3", eta: "11 min", raised: "22 min ago" },
-  { id: "EMG-4809", type: "Fire", priority: "High", status: "Resolved", location: "Saswad Kitchen Tent", team: "Fire Unit 2", eta: "—", raised: "1 hr ago" },
-  { id: "EMG-4803", type: "Animal Incident", priority: "Low", status: "Resolved", location: "Lonand Field Path", team: "Seva Unit 7", eta: "—", raised: "2 hr ago" },
+  {
+    id: "EMG-4821",
+    type: "Medical",
+    priority: "Critical",
+    status: "En Route",
+    location: "Wakhri Ringan · Sector 4",
+    team: "Ambulance A-17",
+    eta: "3 min",
+    raised: "2 min ago",
+  },
+  {
+    id: "EMG-4820",
+    type: "Stampede",
+    priority: "Critical",
+    status: "Dispatched",
+    location: "Alandi Ghat Bridge",
+    team: "QRT Bravo",
+    eta: "6 min",
+    raised: "8 min ago",
+  },
+  {
+    id: "EMG-4818",
+    type: "Lost Person",
+    priority: "High",
+    status: "Active",
+    location: "Jejuri Camp Gate 2",
+    team: "Seva Unit 12",
+    eta: "—",
+    raised: "14 min ago",
+  },
+  {
+    id: "EMG-4815",
+    type: "Road Block",
+    priority: "Medium",
+    status: "Dispatched",
+    location: "NH-965 KM 42",
+    team: "Traffic Wing 3",
+    eta: "11 min",
+    raised: "22 min ago",
+  },
+  {
+    id: "EMG-4809",
+    type: "Fire",
+    priority: "High",
+    status: "Resolved",
+    location: "Saswad Kitchen Tent",
+    team: "Fire Unit 2",
+    eta: "—",
+    raised: "1 hr ago",
+  },
+  {
+    id: "EMG-4803",
+    type: "Animal Incident",
+    priority: "Low",
+    status: "Resolved",
+    location: "Lonand Field Path",
+    team: "Seva Unit 7",
+    eta: "—",
+    raised: "2 hr ago",
+  },
 ];
 
 export const alerts = [
-  { id: 1, level: "Critical", title: "Crowd density 92% at Alandi Ghat", time: "18:42", channel: "Push · SMS · Voice", detail: "AI predicts congestion breach within 12 minutes. Redirect via Ring Road B." },
-  { id: 2, level: "Critical", title: "Ambulance shortage in Sector 4", time: "18:31", channel: "Push · WhatsApp", detail: "Only 2 units available for 18,000 pilgrims. Transfer from Saswad depot." },
-  { id: 3, level: "Medium", title: "Water stock below 30% at Jejuri", time: "18:05", channel: "SMS", detail: "Forecast depletion in 2h 40m. Tanker dispatch recommended." },
-  { id: 4, level: "Medium", title: "Rain expected 20:00 – 22:00", time: "17:50", channel: "Push", detail: "Prepare shelter capacity for 40,000 pilgrims at Lonand." },
-  { id: 5, level: "Resolved", title: "Lost child reunited at Gate 2", time: "17:12", channel: "Voice", detail: "AI face-match confirmed guardian in 4 minutes." },
-  { id: 6, level: "Resolved", title: "Barricade restored at NH-965", time: "16:40", channel: "Push", detail: "Traffic Wing 3 completed reinforcement." },
+  {
+    id: 1,
+    level: "Critical",
+    title: "Crowd density 92% at Alandi Ghat",
+    time: "18:42",
+    channel: "Push · SMS · Voice",
+    detail: "AI predicts congestion breach within 12 minutes. Redirect via Ring Road B.",
+  },
+  {
+    id: 2,
+    level: "Critical",
+    title: "Ambulance shortage in Sector 4",
+    time: "18:31",
+    channel: "Push · WhatsApp",
+    detail: "Only 2 units available for 18,000 pilgrims. Transfer from Saswad depot.",
+  },
+  {
+    id: 3,
+    level: "Medium",
+    title: "Water stock below 30% at Jejuri",
+    time: "18:05",
+    channel: "SMS",
+    detail: "Forecast depletion in 2h 40m. Tanker dispatch recommended.",
+  },
+  {
+    id: 4,
+    level: "Medium",
+    title: "Rain expected 20:00 – 22:00",
+    time: "17:50",
+    channel: "Push",
+    detail: "Prepare shelter capacity for 40,000 pilgrims at Lonand.",
+  },
+  {
+    id: 5,
+    level: "Resolved",
+    title: "Lost child reunited at Gate 2",
+    time: "17:12",
+    channel: "Voice",
+    detail: "AI face-match confirmed guardian in 4 minutes.",
+  },
+  {
+    id: 6,
+    level: "Resolved",
+    title: "Barricade restored at NH-965",
+    time: "16:40",
+    channel: "Push",
+    detail: "Traffic Wing 3 completed reinforcement.",
+  },
 ];
 
 export const volunteers = [
@@ -95,17 +272,69 @@ export const volunteers = [
 ];
 
 export const tasks = [
-  { id: "T-9012", title: "Escort medical team to Sector 4", priority: "Critical", eta: "5 min", zone: "Wakhri Ringan" },
-  { id: "T-9009", title: "Refill water station W-22", priority: "High", eta: "18 min", zone: "Jejuri Camp" },
-  { id: "T-9004", title: "Crowd guidance at Gate 2", priority: "Medium", eta: "30 min", zone: "Alandi Ghat" },
-  { id: "T-8998", title: "Distribute 500 meal packets", priority: "Medium", eta: "45 min", zone: "Saswad Halt" },
+  {
+    id: "T-9012",
+    title: "Escort medical team to Sector 4",
+    priority: "Critical",
+    eta: "5 min",
+    zone: "Wakhri Ringan",
+  },
+  {
+    id: "T-9009",
+    title: "Refill water station W-22",
+    priority: "High",
+    eta: "18 min",
+    zone: "Jejuri Camp",
+  },
+  {
+    id: "T-9004",
+    title: "Crowd guidance at Gate 2",
+    priority: "Medium",
+    eta: "30 min",
+    zone: "Alandi Ghat",
+  },
+  {
+    id: "T-8998",
+    title: "Distribute 500 meal packets",
+    priority: "Medium",
+    eta: "45 min",
+    zone: "Saswad Halt",
+  },
 ];
 
 export const patients = [
-  { id: "P-2201", name: "Vitthal Kadam", age: 64, issue: "Dehydration", triage: "Yellow", camp: "Camp 7" },
-  { id: "P-2199", name: "Sunita Gaikwad", age: 51, issue: "Heat exhaustion", triage: "Red", camp: "Camp 3" },
-  { id: "P-2195", name: "Mahesh Pawar", age: 37, issue: "Foot injury", triage: "Green", camp: "Camp 7" },
-  { id: "P-2190", name: "Rekha Shinde", age: 72, issue: "Chest pain", triage: "Red", camp: "Camp 1" },
+  {
+    id: "P-2201",
+    name: "Vitthal Kadam",
+    age: 64,
+    issue: "Dehydration",
+    triage: "Yellow",
+    camp: "Camp 7",
+  },
+  {
+    id: "P-2199",
+    name: "Sunita Gaikwad",
+    age: 51,
+    issue: "Heat exhaustion",
+    triage: "Red",
+    camp: "Camp 3",
+  },
+  {
+    id: "P-2195",
+    name: "Mahesh Pawar",
+    age: 37,
+    issue: "Foot injury",
+    triage: "Green",
+    camp: "Camp 7",
+  },
+  {
+    id: "P-2190",
+    name: "Rekha Shinde",
+    age: 72,
+    issue: "Chest pain",
+    triage: "Red",
+    camp: "Camp 1",
+  },
 ];
 
 export const inventory = [
@@ -132,18 +361,62 @@ export const policeUnits = [
 ];
 
 export const resources = [
-  { name: "Drinking Water", stock: 68, consumption: "42,000 L/hr", forecast: "Shortfall in 3h", tone: "warning" },
-  { name: "Food Packets", stock: 74, consumption: "12,400 /hr", forecast: "Stable till 22:00", tone: "success" },
-  { name: "Medical Kits", stock: 52, consumption: "310 /hr", forecast: "Reorder advised", tone: "warning" },
-  { name: "Volunteers", stock: 81, consumption: "2,514 active", forecast: "Adequate", tone: "success" },
-  { name: "Ambulances", stock: 39, consumption: "148 available", forecast: "Critical in Sector 4", tone: "danger" },
-  { name: "Police Vehicles", stock: 66, consumption: "232 deployed", forecast: "Stable", tone: "success" },
+  {
+    name: "Drinking Water",
+    stock: 68,
+    consumption: "42,000 L/hr",
+    forecast: "Shortfall in 3h",
+    tone: "warning",
+  },
+  {
+    name: "Food Packets",
+    stock: 74,
+    consumption: "12,400 /hr",
+    forecast: "Stable till 22:00",
+    tone: "success",
+  },
+  {
+    name: "Medical Kits",
+    stock: 52,
+    consumption: "310 /hr",
+    forecast: "Reorder advised",
+    tone: "warning",
+  },
+  {
+    name: "Volunteers",
+    stock: 81,
+    consumption: "2,514 active",
+    forecast: "Adequate",
+    tone: "success",
+  },
+  {
+    name: "Ambulances",
+    stock: 39,
+    consumption: "148 available",
+    forecast: "Critical in Sector 4",
+    tone: "danger",
+  },
+  {
+    name: "Police Vehicles",
+    stock: 66,
+    consumption: "232 deployed",
+    forecast: "Stable",
+    tone: "success",
+  },
 ];
 
 export const aiRecommendations = [
-  { action: "Deploy 120 more volunteers to Alandi Ghat", impact: "Reduces density 92% → 74%", confidence: 94 },
+  {
+    action: "Deploy 120 more volunteers to Alandi Ghat",
+    impact: "Reduces density 92% → 74%",
+    confidence: 94,
+  },
   { action: "Open alternate route Ring Road B", impact: "Diverts 18,000 pilgrims", confidence: 89 },
-  { action: "Dispatch 3 water tankers to Jejuri", impact: "Prevents shortage at 21:10", confidence: 86 },
+  {
+    action: "Dispatch 3 water tankers to Jejuri",
+    impact: "Prevents shortage at 21:10",
+    confidence: 86,
+  },
   { action: "Move Ambulance A-22 to Sector 4", impact: "Response time 9 → 4 min", confidence: 91 },
 ];
 
@@ -181,9 +454,24 @@ export const mapMarkers = [
 
 export const roles = [
   { id: "admin", name: "Admin", desc: "Full command of the Wari operation", icon: "Crown" },
-  { id: "coordinator", name: "Coordinator", desc: "Zone planning and resource routing", icon: "ClipboardList" },
-  { id: "volunteer", name: "Volunteer", desc: "Field tasks, attendance, reporting", icon: "HeartHandshake" },
+  {
+    id: "coordinator",
+    name: "Coordinator",
+    desc: "Zone planning and resource routing",
+    icon: "ClipboardList",
+  },
+  {
+    id: "volunteer",
+    name: "Volunteer",
+    desc: "Field tasks, attendance, reporting",
+    icon: "HeartHandshake",
+  },
   { id: "police", name: "Police", desc: "Crowd control, barricades, drones", icon: "Shield" },
-  { id: "medical", name: "Medical Team", desc: "Patients, ambulances, inventory", icon: "Stethoscope" },
+  {
+    id: "medical",
+    name: "Medical Team",
+    desc: "Patients, ambulances, inventory",
+    icon: "Stethoscope",
+  },
   { id: "pilgrim", name: "Pilgrim", desc: "Help, routes and SOS on the go", icon: "Footprints" },
 ];

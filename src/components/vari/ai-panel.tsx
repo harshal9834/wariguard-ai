@@ -12,15 +12,15 @@ const riskTone: Record<string, string> = {
   Critical: "bg-danger/15 text-danger",
 };
 
-export function AIPanel({ className, floating = false }: { className?: string; floating?: boolean }) {
+export function AIPanel({
+  className,
+  floating = false,
+}: {
+  className?: string;
+  floating?: boolean;
+}) {
   return (
-    <div
-      className={cn(
-        floating ? "glass rounded-2xl" : "surface-card",
-        "p-4",
-        className,
-      )}
-    >
+    <div className={cn(floating ? "glass rounded-2xl" : "surface-card", "p-4", className)}>
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="gradient-navy grid size-8 place-items-center rounded-lg text-white">
@@ -39,7 +39,12 @@ export function AIPanel({ className, floating = false }: { className?: string; f
           <div key={p.window}>
             <div className="flex items-center justify-between text-xs">
               <span className="font-medium">{p.window}</span>
-              <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-semibold", riskTone[p.risk])}>
+              <span
+                className={cn(
+                  "rounded-full px-2 py-0.5 text-[10px] font-semibold",
+                  riskTone[p.risk],
+                )}
+              >
                 {p.risk}
               </span>
             </div>

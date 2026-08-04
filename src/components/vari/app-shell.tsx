@@ -75,7 +75,10 @@ export function AppShell({ children }: { children: ReactNode }) {
 
         <div className="relative ml-4 hidden max-w-md flex-1 md:block">
           <Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2" />
-          <Input placeholder="Search zones, volunteers, incidents…" className="bg-background/60 pl-9" />
+          <Input
+            placeholder="Search zones, volunteers, incidents…"
+            className="bg-background/60 pl-9"
+          />
         </div>
 
         <div className="ml-auto flex items-center gap-1.5">
@@ -107,11 +110,15 @@ export function AppShell({ children }: { children: ReactNode }) {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="gap-2 px-1.5 sm:px-2">
                 <Avatar className="size-7">
-                  <AvatarFallback className="bg-navy text-navy-foreground text-xs">AK</AvatarFallback>
+                  <AvatarFallback className="bg-navy text-navy-foreground text-xs">
+                    AK
+                  </AvatarFallback>
                 </Avatar>
                 <span className="hidden text-left leading-tight sm:block">
                   <span className="block text-xs font-semibold">Amit Kulkarni</span>
-                  <span className="text-muted-foreground block text-[10px]">Admin · Pune Range</span>
+                  <span className="text-muted-foreground block text-[10px]">
+                    Admin · Pune Range
+                  </span>
                 </span>
               </Button>
             </DropdownMenuTrigger>

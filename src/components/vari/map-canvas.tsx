@@ -43,7 +43,12 @@ export function MapCanvas({
       <svg className="absolute inset-0 size-full" viewBox="0 0 100 100" preserveAspectRatio="none">
         <defs>
           <pattern id="grid" width="5" height="5" patternUnits="userSpaceOnUse">
-            <path d="M5 0 L0 0 0 5" fill="none" stroke="oklch(0.5 0.02 250 / 12%)" strokeWidth="0.2" />
+            <path
+              d="M5 0 L0 0 0 5"
+              fill="none"
+              stroke="oklch(0.5 0.02 250 / 12%)"
+              strokeWidth="0.2"
+            />
           </pattern>
           <radialGradient id="hot">
             <stop offset="0%" stopColor="oklch(0.6 0.24 25 / 62%)" />
@@ -61,9 +66,19 @@ export function MapCanvas({
         </defs>
         <rect width="100" height="100" fill="url(#grid)" />
         {/* rivers / fields */}
-        <path d="M-2 68 C 20 60, 34 78, 55 70 S 88 56, 104 64" fill="none" stroke="oklch(0.75 0.09 230 / 40%)" strokeWidth="2.4" />
+        <path
+          d="M-2 68 C 20 60, 34 78, 55 70 S 88 56, 104 64"
+          fill="none"
+          stroke="oklch(0.75 0.09 230 / 40%)"
+          strokeWidth="2.4"
+        />
         {/* roads */}
-        <path d="M-2 88 L104 12" stroke="oklch(0.55 0.02 250 / 35%)" strokeWidth="1.6" fill="none" />
+        <path
+          d="M-2 88 L104 12"
+          stroke="oklch(0.55 0.02 250 / 35%)"
+          strokeWidth="1.6"
+          fill="none"
+        />
         <path d="M8 -2 L38 104" stroke="oklch(0.55 0.02 250 / 22%)" strokeWidth="1" fill="none" />
         <path d="M-2 40 L104 46" stroke="oklch(0.55 0.02 250 / 22%)" strokeWidth="1" fill="none" />
 
@@ -104,7 +119,7 @@ export function MapCanvas({
 
       {/* markers */}
       {mapMarkers.map((m) => {
-        const meta = kindMeta[m.kind] ?? kindMeta['rest']!;
+        const meta = kindMeta[m.kind] ?? kindMeta["rest"]!;
         const Icon = meta.icon;
         return (
           <div

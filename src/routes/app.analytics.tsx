@@ -19,25 +19,49 @@ import {
 import { PageHeader } from "@/components/vari/app-shell";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { crowdTrend, densityByZone, emergencyMix, resourceUsage, responseTime } from "@/lib/wari-data";
+import {
+  crowdTrend,
+  densityByZone,
+  emergencyMix,
+  resourceUsage,
+  responseTime,
+} from "@/lib/wari-data";
 
 export const Route = createFileRoute("/app/analytics")({
   head: () => ({
     meta: [
       { title: "AI Analytics · VARI-SENSE" },
-      { name: "description", content: "Crowd trends, emergency heatmaps, volunteer efficiency and resource usage analytics." },
+      {
+        name: "description",
+        content:
+          "Crowd trends, emergency heatmaps, volunteer efficiency and resource usage analytics.",
+      },
     ],
   }),
   component: Analytics,
 });
 
-const pieColors = ["var(--chart-1)", "var(--chart-2)", "var(--chart-3)", "var(--chart-4)", "var(--chart-5)", "var(--muted-foreground)"];
+const pieColors = [
+  "var(--chart-1)",
+  "var(--chart-2)",
+  "var(--chart-3)",
+  "var(--chart-4)",
+  "var(--chart-5)",
+  "var(--muted-foreground)",
+];
 
 const heat = Array.from({ length: 7 }, (_, r) =>
-  Array.from({ length: 12 }, (_, c) => Math.round(30 + 60 * Math.abs(Math.sin((r + 1) * (c + 2) / 6)))),
+  Array.from({ length: 12 }, (_, c) =>
+    Math.round(30 + 60 * Math.abs(Math.sin(((r + 1) * (c + 2)) / 6))),
+  ),
 );
 
-const tooltipStyle = { borderRadius: 12, fontSize: 12, border: "1px solid var(--border)", background: "var(--card)" };
+const tooltipStyle = {
+  borderRadius: 12,
+  fontSize: 12,
+  border: "1px solid var(--border)",
+  background: "var(--card)",
+};
 
 function Analytics() {
   return (
@@ -48,7 +72,9 @@ function Analytics() {
         actions={
           <>
             <Badge variant="outline">4 models · v3.2</Badge>
-            <Button size="sm" variant="outline">Last 7 days</Button>
+            <Button size="sm" variant="outline">
+              Last 7 days
+            </Button>
           </>
         }
       />
@@ -66,10 +92,21 @@ function Analytics() {
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="hour" interval={3} tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
+                <XAxis
+                  dataKey="hour"
+                  interval={3}
+                  tick={{ fontSize: 10 }}
+                  stroke="var(--muted-foreground)"
+                />
                 <YAxis tick={{ fontSize: 10 }} width={48} stroke="var(--muted-foreground)" />
                 <Tooltip contentStyle={tooltipStyle} />
-                <Area type="monotone" dataKey="actual" stroke="var(--saffron)" strokeWidth={2} fill="url(#a1)" />
+                <Area
+                  type="monotone"
+                  dataKey="actual"
+                  stroke="var(--saffron)"
+                  strokeWidth={2}
+                  fill="url(#a1)"
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -81,12 +118,32 @@ function Analytics() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={crowdTrend}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="hour" interval={3} tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
+                <XAxis
+                  dataKey="hour"
+                  interval={3}
+                  tick={{ fontSize: 10 }}
+                  stroke="var(--muted-foreground)"
+                />
                 <YAxis tick={{ fontSize: 10 }} width={48} stroke="var(--muted-foreground)" />
                 <Tooltip contentStyle={tooltipStyle} />
                 <Legend wrapperStyle={{ fontSize: 11 }} />
-                <Line type="monotone" dataKey="actual" name="Actual" stroke="var(--navy)" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="predicted" name="Predicted" stroke="var(--saffron)" strokeWidth={2} dot={false} strokeDasharray="5 4" />
+                <Line
+                  type="monotone"
+                  dataKey="actual"
+                  name="Actual"
+                  stroke="var(--navy)"
+                  strokeWidth={2}
+                  dot={false}
+                />
+                <Line
+                  type="monotone"
+                  dataKey="predicted"
+                  name="Predicted"
+                  stroke="var(--saffron)"
+                  strokeWidth={2}
+                  dot={false}
+                  strokeDasharray="5 4"
+                />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -97,7 +154,14 @@ function Analytics() {
           <div className="mt-3 h-60">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
-                <Pie data={emergencyMix} dataKey="value" nameKey="name" innerRadius={55} outerRadius={85} paddingAngle={3}>
+                <Pie
+                  data={emergencyMix}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={55}
+                  outerRadius={85}
+                  paddingAngle={3}
+                >
                   {emergencyMix.map((_, i) => (
                     <Cell key={i} fill={pieColors[i % pieColors.length]} />
                   ))}
@@ -115,10 +179,22 @@ function Analytics() {
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={densityByZone}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
-                <XAxis dataKey="zone" tick={{ fontSize: 9 }} stroke="var(--muted-foreground)" interval={0} angle={-12} height={45} />
+                <XAxis
+                  dataKey="zone"
+                  tick={{ fontSize: 9 }}
+                  stroke="var(--muted-foreground)"
+                  interval={0}
+                  angle={-12}
+                  height={45}
+                />
                 <YAxis tick={{ fontSize: 10 }} stroke="var(--muted-foreground)" />
                 <Tooltip contentStyle={tooltipStyle} />
-                <Bar dataKey="density" name="Efficiency index" fill="var(--success)" radius={[6, 6, 0, 0]} />
+                <Bar
+                  dataKey="density"
+                  name="Efficiency index"
+                  fill="var(--success)"
+                  radius={[6, 6, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
