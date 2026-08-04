@@ -10,33 +10,241 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppAlertsRouteImport } from './routes/app.alerts'
+import { Route as AppAnalyticsRouteImport } from './routes/app.analytics'
+import { Route as AppAssistantRouteImport } from './routes/app.assistant'
+import { Route as AppCrowdRouteImport } from './routes/app.crowd'
+import { Route as AppDigitalTwinRouteImport } from './routes/app.digital-twin'
+import { Route as AppEmergencyRouteImport } from './routes/app.emergency'
+import { Route as AppMapRouteImport } from './routes/app.map'
+import { Route as AppMedicalRouteImport } from './routes/app.medical'
+import { Route as AppMobileRouteImport } from './routes/app.mobile'
+import { Route as AppPoliceRouteImport } from './routes/app.police'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppResourcesRouteImport } from './routes/app.resources'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppVolunteersRouteImport } from './routes/app.volunteers'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAlertsRoute = AppAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAnalyticsRoute = AppAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppAssistantRoute = AppAssistantRouteImport.update({
+  id: '/assistant',
+  path: '/assistant',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCrowdRoute = AppCrowdRouteImport.update({
+  id: '/crowd',
+  path: '/crowd',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDigitalTwinRoute = AppDigitalTwinRouteImport.update({
+  id: '/digital-twin',
+  path: '/digital-twin',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmergencyRoute = AppEmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMapRoute = AppMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMedicalRoute = AppMedicalRouteImport.update({
+  id: '/medical',
+  path: '/medical',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppMobileRoute = AppMobileRouteImport.update({
+  id: '/mobile',
+  path: '/mobile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPoliceRoute = AppPoliceRouteImport.update({
+  id: '/police',
+  path: '/police',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppResourcesRoute = AppResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppVolunteersRoute = AppVolunteersRouteImport.update({
+  id: '/volunteers',
+  path: '/volunteers',
+  getParentRoute: () => AppRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/app/alerts': typeof AppAlertsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/crowd': typeof AppCrowdRoute
+  '/app/digital-twin': typeof AppDigitalTwinRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/map': typeof AppMapRoute
+  '/app/medical': typeof AppMedicalRoute
+  '/app/mobile': typeof AppMobileRoute
+  '/app/police': typeof AppPoliceRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/resources': typeof AppResourcesRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/volunteers': typeof AppVolunteersRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/app/alerts': typeof AppAlertsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/crowd': typeof AppCrowdRoute
+  '/app/digital-twin': typeof AppDigitalTwinRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/map': typeof AppMapRoute
+  '/app/medical': typeof AppMedicalRoute
+  '/app/mobile': typeof AppMobileRoute
+  '/app/police': typeof AppPoliceRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/resources': typeof AppResourcesRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/volunteers': typeof AppVolunteersRoute
+  '/app': typeof AppIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/app/alerts': typeof AppAlertsRoute
+  '/app/analytics': typeof AppAnalyticsRoute
+  '/app/assistant': typeof AppAssistantRoute
+  '/app/crowd': typeof AppCrowdRoute
+  '/app/digital-twin': typeof AppDigitalTwinRoute
+  '/app/emergency': typeof AppEmergencyRoute
+  '/app/map': typeof AppMapRoute
+  '/app/medical': typeof AppMedicalRoute
+  '/app/mobile': typeof AppMobileRoute
+  '/app/police': typeof AppPoliceRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/resources': typeof AppResourcesRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/volunteers': typeof AppVolunteersRoute
+  '/app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/app/alerts'
+    | '/app/analytics'
+    | '/app/assistant'
+    | '/app/crowd'
+    | '/app/digital-twin'
+    | '/app/emergency'
+    | '/app/map'
+    | '/app/medical'
+    | '/app/mobile'
+    | '/app/police'
+    | '/app/reports'
+    | '/app/resources'
+    | '/app/settings'
+    | '/app/volunteers'
+    | '/app/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/auth'
+    | '/app/alerts'
+    | '/app/analytics'
+    | '/app/assistant'
+    | '/app/crowd'
+    | '/app/digital-twin'
+    | '/app/emergency'
+    | '/app/map'
+    | '/app/medical'
+    | '/app/mobile'
+    | '/app/police'
+    | '/app/reports'
+    | '/app/resources'
+    | '/app/settings'
+    | '/app/volunteers'
+    | '/app'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/auth'
+    | '/app/alerts'
+    | '/app/analytics'
+    | '/app/assistant'
+    | '/app/crowd'
+    | '/app/digital-twin'
+    | '/app/emergency'
+    | '/app/map'
+    | '/app/medical'
+    | '/app/mobile'
+    | '/app/police'
+    | '/app/reports'
+    | '/app/resources'
+    | '/app/settings'
+    | '/app/volunteers'
+    | '/app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  AuthRoute: typeof AuthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +256,171 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/alerts': {
+      id: '/app/alerts'
+      path: '/alerts'
+      fullPath: '/app/alerts'
+      preLoaderRoute: typeof AppAlertsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/analytics': {
+      id: '/app/analytics'
+      path: '/analytics'
+      fullPath: '/app/analytics'
+      preLoaderRoute: typeof AppAnalyticsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/assistant': {
+      id: '/app/assistant'
+      path: '/assistant'
+      fullPath: '/app/assistant'
+      preLoaderRoute: typeof AppAssistantRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/crowd': {
+      id: '/app/crowd'
+      path: '/crowd'
+      fullPath: '/app/crowd'
+      preLoaderRoute: typeof AppCrowdRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/digital-twin': {
+      id: '/app/digital-twin'
+      path: '/digital-twin'
+      fullPath: '/app/digital-twin'
+      preLoaderRoute: typeof AppDigitalTwinRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/emergency': {
+      id: '/app/emergency'
+      path: '/emergency'
+      fullPath: '/app/emergency'
+      preLoaderRoute: typeof AppEmergencyRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/map': {
+      id: '/app/map'
+      path: '/map'
+      fullPath: '/app/map'
+      preLoaderRoute: typeof AppMapRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/medical': {
+      id: '/app/medical'
+      path: '/medical'
+      fullPath: '/app/medical'
+      preLoaderRoute: typeof AppMedicalRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/mobile': {
+      id: '/app/mobile'
+      path: '/mobile'
+      fullPath: '/app/mobile'
+      preLoaderRoute: typeof AppMobileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/police': {
+      id: '/app/police'
+      path: '/police'
+      fullPath: '/app/police'
+      preLoaderRoute: typeof AppPoliceRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/resources': {
+      id: '/app/resources'
+      path: '/resources'
+      fullPath: '/app/resources'
+      preLoaderRoute: typeof AppResourcesRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/volunteers': {
+      id: '/app/volunteers'
+      path: '/volunteers'
+      fullPath: '/app/volunteers'
+      preLoaderRoute: typeof AppVolunteersRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppAlertsRoute: typeof AppAlertsRoute
+  AppAnalyticsRoute: typeof AppAnalyticsRoute
+  AppAssistantRoute: typeof AppAssistantRoute
+  AppCrowdRoute: typeof AppCrowdRoute
+  AppDigitalTwinRoute: typeof AppDigitalTwinRoute
+  AppEmergencyRoute: typeof AppEmergencyRoute
+  AppMapRoute: typeof AppMapRoute
+  AppMedicalRoute: typeof AppMedicalRoute
+  AppMobileRoute: typeof AppMobileRoute
+  AppPoliceRoute: typeof AppPoliceRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppResourcesRoute: typeof AppResourcesRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppVolunteersRoute: typeof AppVolunteersRoute
+  AppIndexRoute: typeof AppIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppAlertsRoute: AppAlertsRoute,
+  AppAnalyticsRoute: AppAnalyticsRoute,
+  AppAssistantRoute: AppAssistantRoute,
+  AppCrowdRoute: AppCrowdRoute,
+  AppDigitalTwinRoute: AppDigitalTwinRoute,
+  AppEmergencyRoute: AppEmergencyRoute,
+  AppMapRoute: AppMapRoute,
+  AppMedicalRoute: AppMedicalRoute,
+  AppMobileRoute: AppMobileRoute,
+  AppPoliceRoute: AppPoliceRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppResourcesRoute: AppResourcesRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppVolunteersRoute: AppVolunteersRoute,
+  AppIndexRoute: AppIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  AuthRoute: AuthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
