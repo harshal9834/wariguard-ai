@@ -13,4 +13,10 @@ export default defineConfig({
     tailwindcss(),
     tsconfigPaths(),
   ],
+  build: {
+    minify: "terser",
+  },
+  resolve: {
+    tsconfigPaths: true,
+  },
 });
