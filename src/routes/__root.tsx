@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { queryClient } from "../router";
 
 import appCss from "../styles.css?url";
 
