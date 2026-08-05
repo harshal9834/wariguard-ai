@@ -8,6 +8,8 @@ export default defineConfig({
   plugins: [
     tanstackStart({
       server: { entry: "server" },
+      // Explicitly specify router entry for Vercel compatibility
+      router: { entry: "router" },
     }),
     react(),
     tailwindcss(),
