@@ -2,8 +2,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": ".",
   "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs20.x"
+    "api/[...all].js": {
+      "runtime": "nodejs18.x"
     }
   }
 }

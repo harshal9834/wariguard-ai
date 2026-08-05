@@ -1,7 +1,8 @@
-import handler from '../dist/server/server.js';
-
-export default async (req, res) => {
+module.exports = async (req, res) => {
   try {
+    // Dynamic import of the ESM server module
+    const { default: handler } = await import('../dist/server/server.js');
+    
     // Convert Node.js request/response to Fetch API
     const url = new URL(req.url, `http://${req.headers.host}`);
     
@@ -12,7 +13,7 @@ export default async (req, res) => {
     });
     
     // Call the server handler
-    const response = await handler.default.fetch(request);
+    const response = await handler.fetch(request);
     
     // Set response status and headers
     res.status(response.status);
